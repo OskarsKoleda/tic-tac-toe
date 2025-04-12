@@ -1,19 +1,28 @@
 import styles from "./styles.module.css";
 import { useState } from "react";
 import * as React from "react";
+import { PlayerSymbol } from "../../constants/types.ts";
 
 type PlayerProps = {
-  symbol: string;
+  name: string;
+  symbol: PlayerSymbol;
   isActive: boolean;
+  onChangeName: (symbol: PlayerSymbol, playerName: string) => void;
 };
 
-export const Player = React.memo(function Player({ symbol, isActive }: PlayerProps) {
-  const [playerName, setPlayerName] = useState("Dummy");
+export const Player = React.memo(function Player({
+  name,
+  symbol,
+  isActive,
+  onChangeName,
+}: PlayerProps) {
+  const [playerName, setPlayerName] = useState(name);
   const [nameEditMode, setNameEditMode] = useState(false);
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       setNameEditMode(false);
+      onChangeName(symbol, playerName);
     }
   }
 
@@ -22,6 +31,7 @@ export const Player = React.memo(function Player({ symbol, isActive }: PlayerPro
       setNameEditMode(true);
     } else {
       setNameEditMode(false);
+      onChangeName(symbol, playerName);
     }
   }
 

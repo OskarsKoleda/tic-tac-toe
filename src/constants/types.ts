@@ -14,7 +14,8 @@ export interface Turn {
     row: number;
     col: number;
   };
-  player: PlayerSymbol;
+  playerSymbol: PlayerSymbol;
+  playerName: string;
 }
 
 export type Turns = Array<Turn>;

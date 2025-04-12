@@ -1,3 +1,11 @@
+import { Board } from "./types.ts";
+
+export const initialGameBoard: Board = [
+  [null, null, null],
+  [null, null, null],
+  [null, null, null],
+];
+
 export const WINNING_COMBINATIONS = [
   [
     { row: 0, column: 0 },

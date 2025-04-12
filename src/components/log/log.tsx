@@ -1,5 +1,5 @@
-import { Turn } from "../../App.tsx";
 import styles from "./styles.module.css";
+import { Turn } from "../../constants/types.ts";
 
 type LogProps = {
   turns: Turn[];
@@ -11,7 +11,8 @@ export const Log = ({ turns }: LogProps) => {
       {turns.map((turn, index) => {
         return (
           <li key={index} className={styles.listItem}>
-            {turn.player} on Row: {turn.square.row + 1} - Column: {turn.square.col + 1}
+            {turn.playerName} ({turn.playerSymbol}) on Row: {turn.square.row + 1} - Column:{" "}
+            {turn.square.col + 1}
           </li>
         );
       })}
