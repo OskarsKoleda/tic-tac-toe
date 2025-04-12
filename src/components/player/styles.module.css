@@ -1,0 +1,23 @@
+.player {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    padding: 0.8rem;
+}
+
+.active {
+    font-weight: 800;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem;
+    font-size: 1rem;
+    background: #43c58b;
+}
+
+button:hover {
+    background: #16ad68;
+}

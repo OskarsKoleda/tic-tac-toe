@@ -1,0 +1,27 @@
+.appContainer {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d5ded9;
+}
+
+.gameContainerStyles {
+    display: flex;
+    flex-direction: column;
+    min-width: 35rem;
+    width: 45%;
+    margin-top: 5rem;
+    padding: 1rem 3rem 3rem 3rem;
+    border-radius: 0.5rem;
+    background-color: #33a471;
+}
+
+.playersContainer  {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 5rem;
+    margin-bottom: 1rem;
+}

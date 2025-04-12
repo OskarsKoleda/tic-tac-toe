@@ -1,0 +1,26 @@
+.squareContainer {
+  background-color: #eab4b4;
+  flex: 0 0 30%;
+
+  height: 8rem;
+  width: 8rem;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+
+  border: 0.2rem solid black;
+  cursor: pointer;
+
+  img {
+    height: 75%;
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+}

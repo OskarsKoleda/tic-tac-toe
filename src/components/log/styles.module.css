@@ -1,0 +1,10 @@
+.list {
+    list-style: none;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.listItem {
+    margin-top: 0.2rem;
+    background-color: #d9d9d9;
+}
