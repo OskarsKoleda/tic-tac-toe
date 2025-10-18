@@ -1,15 +1,16 @@
-import { GameBoard } from "./components/gameBoard/gameBoard.tsx";
-import styles from "./styles.module.css";
 import { useMemo, useState } from "react";
+import { createPortal } from "react-dom";
+import { GameBoard } from "./components/gameBoard/gameBoard.tsx";
+import { GameOver } from "./components/gameOver/gameOver.tsx";
 import { Log } from "./components/log/log.tsx";
 import { Player } from "./components/player/player.tsx";
-import { PlayerSymbol, PlayerSymbols, Turns } from "./constants/types.ts";
-import { GameOver } from "./components/gameOver/gameOver.tsx";
-import { checkWinner, deriveActivePlayer } from "./utils/utils.ts";
-import { createPortal } from "react-dom";
 import { initialGameBoard } from "./constants/constants.ts";
+import type { PlayerSymbol, Turns } from "./constants/types.ts";
+import { PlayerSymbols } from "./constants/types.ts";
+import styles from "./styles.module.css";
+import { checkWinner, deriveActivePlayer } from "./utils/utils.ts";
 
-function App() {
+const App = () => {
   const [gameTurns, setGameTurns] = useState<Turns>([]);
   const currentPlayer = deriveActivePlayer(gameTurns);
   const [players, setPlayers] = useState({
@@ -64,7 +65,7 @@ function App() {
     const winnerSymbol = checkWinner(gameBoard);
 
     return winnerSymbol ? players[winnerSymbol] : null;
-  }, [gameBoard]);
+  }, [gameBoard, players]);
 
   const isDraw = useMemo(() => {
     if (winnerName) return false;
@@ -98,6 +99,6 @@ function App() {
         createPortal(<GameOver winner={winnerName} onClose={handleRestart} />, document.body)}
     </div>
   );
-}
+};
 
 export default App;

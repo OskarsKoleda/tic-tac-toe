@@ -1,7 +1,7 @@
-import styles from "./styles.module.css";
 import { useState } from "react";
 import * as React from "react";
-import { PlayerSymbol } from "../../constants/types.ts";
+import type { PlayerSymbol } from "../../constants/types.ts";
+import styles from "./styles.module.css";
 
 type PlayerProps = {
   name: string;

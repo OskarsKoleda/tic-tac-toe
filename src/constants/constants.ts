@@ -1,4 +1,4 @@
-import { Board } from "./types.ts";
+import type { Board } from "./types.ts";
 
 export const initialGameBoard: Board = [
   [null, null, null],

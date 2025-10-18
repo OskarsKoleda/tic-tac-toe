@@ -1,6 +1,6 @@
+import type { Board } from "../../constants/types.ts";
 import { Square } from "../square/square.tsx";
 import styles from "./styles.module.css";
-import { Board } from "../../constants/types.ts";
 
 type GameBoardProps = {
   turns: Board;
@@ -15,7 +15,7 @@ export const GameBoard = ({ turns, handleSelectSquare }: GameBoardProps) => {
           return (
             <Square
               onClick={() => handleSelectSquare(rowIndex, colIndex)}
-              key={colIndex}
+              key={`${rowIndex}-${colIndex}`}
               symbol={playerSymbol}
             />
           );

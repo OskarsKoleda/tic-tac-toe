@@ -1,22 +1,24 @@
-import styles from "./styles.module.css";
+import { useMemo } from "react";
 import xImg from "../../assets/close.png";
 import oImg from "../../assets/letter-o.png";
-import { useMemo } from "react";
 import { PlayerSymbols } from "../../constants/types.ts";
+import styles from "./styles.module.css";
 
-type SquareProps = {
+interface SquareProps {
   onClick: () => void;
   symbol: string | null;
-};
+}
 
 export const Square = ({ symbol, onClick }: SquareProps) => {
   const symbolToRender = useMemo(() => {
-    if (!symbol) return null;
+    if (!symbol) {
+      return null;
+    }
 
     return symbol === PlayerSymbols.X ? (
-      <img src={xImg} alt={"cross"} />
+      <img src={xImg} alt="cross" />
     ) : (
-      <img src={oImg} alt={"circle"} />
+      <img src={oImg} alt="circle" />
     );
   }, [symbol]);
 

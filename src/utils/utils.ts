@@ -1,4 +1,5 @@
-import { PlayerSymbol, PlayerSymbols, SquareValue, Turns } from "../constants/types.ts";
+import type { PlayerSymbol, SquareValue, Turns } from "../constants/types.ts";
+import { PlayerSymbols } from "../constants/types.ts";
 import { WINNING_COMBINATIONS } from "../constants/constants.ts";
 
 export function deriveActivePlayer(gameTurns: Turns) {
