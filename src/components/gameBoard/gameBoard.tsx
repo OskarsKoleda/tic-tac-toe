@@ -14,7 +14,7 @@ export const GameBoard = ({ turns, handleSelectSquare }: GameBoardProps) => {
         row.map((playerSymbol, colIndex) => {
           return (
             <Square
-              onClick={() => handleSelectSquare(rowIndex, colIndex)}
+              onSquareClick={() => handleSelectSquare(rowIndex, colIndex)}
               key={`${rowIndex}-${colIndex}`}
               symbol={playerSymbol}
             />

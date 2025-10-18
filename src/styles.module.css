@@ -1,60 +1,60 @@
 .header {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 .appContainer {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #d5ded9;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d5ded9;
 }
 
 .gameContainerStyles {
-    display: flex;
-    flex-direction: column;
-    min-width: 35rem;
-    width: 45%;
-    margin-top: 5rem;
-    padding: 1rem 3rem 3rem 3rem;
-    border-radius: 0.5rem;
-    background-color: #33a471;
+  display: flex;
+  flex-direction: column;
+  min-width: 35rem;
+  width: 45%;
+  margin-top: 5rem;
+  padding: 1rem 3rem 3rem 3rem;
+  border-radius: 0.5rem;
+  background-color: #33a471;
 }
 
-.playersContainer  {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 5rem;
-    margin-bottom: 1rem;
+.playersContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+  margin-bottom: 1rem;
 }
 
 button {
-    border: none;
-    cursor: pointer;
-    padding: 0.2rem 0.5rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    background: #e1cf7c;
-    border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: #e1cf7c;
+  border-radius: 0.25rem;
 }
 
 button:hover {
-    background: #ceb72e;
+  background: #ceb72e;
 }
 
 input {
-    font-size: 1rem;
-    max-width: 8rem;
-    padding: 0.2rem 0.5rem;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  max-width: 8rem;
+  padding: 0.2rem 0.5rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 input:focus {
-    border-color: #007BFF;
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+  border-color: #007bff;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }

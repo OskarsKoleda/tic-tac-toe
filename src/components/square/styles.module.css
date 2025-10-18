@@ -1,8 +1,6 @@
 .squareContainer {
   background-color: #eab4b4;
-  flex: 0 0 30%;
-
-  height: 8rem;
+  aspect-ratio: 1 / 1;
   width: 8rem;
 }
 
@@ -13,11 +11,11 @@
 
   height: 100%;
 
-  border: 0.2rem solid black;
+  border: 2px solid black;
   cursor: pointer;
 
   img {
-    height: 75%;
+    height: 70%;
   }
 }
 
