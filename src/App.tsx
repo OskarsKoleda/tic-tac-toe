@@ -2,18 +2,17 @@ import { useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { GameBoard } from "./components/gameBoard/gameBoard.tsx";
 import { GameOver } from "./components/gameOver/gameOver.tsx";
+import { Header } from "./components/header/header.tsx";
 import { Log } from "./components/log/log.tsx";
-import { Player } from "./components/player/player.tsx";
 import { initialGameBoard } from "./constants/constants.ts";
-import type { PlayerSymbol, Turns } from "./constants/types.ts";
+import type { Players, PlayerSymbol, Turns } from "./constants/types.ts";
 import { PlayerSymbols } from "./constants/types.ts";
 import styles from "./styles.module.css";
 import { checkWinner, deriveActivePlayer } from "./utils/utils.ts";
 
 const App = () => {
   const [gameTurns, setGameTurns] = useState<Turns>([]);
-  const currentPlayer = deriveActivePlayer(gameTurns);
-  const [players, setPlayers] = useState({
+  const [players, setPlayers] = useState<Players>({
     [PlayerSymbols.X]: "Player 1",
     [PlayerSymbols.O]: "Player 2",
   });
@@ -77,20 +76,7 @@ const App = () => {
     <div className={styles.appContainer}>
       <h1 className={styles.header}>Tic Tac Toe</h1>
       <div className={styles.gameContainerStyles}>
-        <ol className={styles.playersContainer}>
-          <Player
-            name={players[PlayerSymbols.X]}
-            symbol={PlayerSymbols.X}
-            isActive={currentPlayer === PlayerSymbols.X}
-            onChangeName={handlePlayerNameChange}
-          />
-          <Player
-            name={players[PlayerSymbols.O]}
-            symbol={PlayerSymbols.O}
-            isActive={currentPlayer === PlayerSymbols.O}
-            onChangeName={handlePlayerNameChange}
-          />
-        </ol>
+        <Header players={players} onNameChange={handlePlayerNameChange} />
         <GameBoard turns={gameBoard} handleSelectSquare={handleSelectSquare} />
       </div>
       <Log turns={gameTurns} />

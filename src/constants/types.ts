@@ -9,13 +9,20 @@ export const PlayerSymbols: Record<PlayerSymbol, PlayerSymbol> = {
   O: "O",
 };
 
+export interface Players {
+  [PlayerSymbols.X]: string;
+  [PlayerSymbols.O]: string;
+}
+
 export interface Turn {
-  square: {
-    row: number;
-    col: number;
-  };
+  square: SquarePosition;
   playerSymbol: PlayerSymbol;
   playerName: string;
+}
+
+interface SquarePosition {
+  row: number;
+  col: number;
 }
 
 export type Turns = Array<Turn>;

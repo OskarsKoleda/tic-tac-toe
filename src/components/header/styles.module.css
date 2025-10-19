@@ -1,0 +1,15 @@
+.playersContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 1.5rem 2rem 1.5rem;
+
+  b {
+    font-size: 1.5rem;
+  }
+}
+
+.inputFieldContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
