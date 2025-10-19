@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { GameBoard } from "./components/gameBoard/gameBoard.tsx";
-import { GameOver } from "./components/gameOver/gameOver.tsx";
 import { Header } from "./components/header/header.tsx";
 import { Log } from "./components/log/log.tsx";
+import { Modal } from "./components/modal/modal.tsx";
 import { initialGameBoard } from "./constants/constants.ts";
 import type { Players, PlayerSymbol, Turns } from "./constants/types.ts";
 import { PlayerSymbols } from "./constants/types.ts";
@@ -17,7 +17,7 @@ const App = () => {
     [PlayerSymbols.O]: "Player 2",
   });
 
-  function handleSelectSquare(rowIndex: number, colIndex: number) {
+  const handleSelectSquare = (rowIndex: number, colIndex: number) => {
     setGameTurns((prevTurns) => {
       const activePlayer = deriveActivePlayer(prevTurns);
 
@@ -30,16 +30,16 @@ const App = () => {
         ...prevTurns,
       ];
     });
-  }
+  };
 
-  function handlePlayerNameChange(symbol: PlayerSymbol, name: string) {
+  const handlePlayerNameChange = (symbol: PlayerSymbol, name: string) => {
     setPlayers((prevPlayers) => {
       return {
         ...prevPlayers,
         [symbol]: name,
       };
     });
-  }
+  };
 
   function handleRestart() {
     setGameTurns([]);
@@ -82,7 +82,12 @@ const App = () => {
       <Log turns={gameTurns} />
 
       {(!!winnerName || isDraw) &&
-        createPortal(<GameOver winner={winnerName} onClose={handleRestart} />, document.body)}
+        createPortal(
+          <Modal actionButtonLabel="New Game" onClose={handleRestart}>
+            {winnerName ? <p>The winner is {winnerName}!</p> : <p>Tie!</p>}
+          </Modal>,
+          document.body,
+        )}
     </div>
   );
 };

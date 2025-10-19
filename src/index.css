@@ -5,3 +5,29 @@
   font-family: "Roboto", serif;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: #e1cf7c;
+  border-radius: 0.25rem;
+}
+
+button:hover {
+  background: #ceb72e;
+}
+
+input {
+  font-size: 1rem;
+  max-width: 8rem;
+  padding: 0.2rem 0.5rem;
+  border: 2px solid #ccc;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+input:focus {
+  border-color: #c98092;
+}

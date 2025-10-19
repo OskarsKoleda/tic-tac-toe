@@ -2,24 +2,22 @@ import type { Board } from "../../constants/types.ts";
 import { Square } from "../square/square.tsx";
 import styles from "./styles.module.css";
 
-type GameBoardProps = {
+interface GameBoardProps {
   turns: Board;
   handleSelectSquare: (row: number, col: number) => void;
-};
+}
 
 export const GameBoard = ({ turns, handleSelectSquare }: GameBoardProps) => {
   return (
     <div className={styles.gameBoard}>
       {turns.map((row, rowIndex) =>
-        row.map((playerSymbol, colIndex) => {
-          return (
-            <Square
-              onSquareClick={() => handleSelectSquare(rowIndex, colIndex)}
-              key={`${rowIndex}-${colIndex}`}
-              symbol={playerSymbol}
-            />
-          );
-        }),
+        row.map((playerSymbol, colIndex) => (
+          <Square
+            onSquareClick={() => handleSelectSquare(rowIndex, colIndex)}
+            key={`${rowIndex}-${colIndex}`}
+            symbol={playerSymbol}
+          />
+        )),
       )}
     </div>
   );
