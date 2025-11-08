@@ -40,7 +40,7 @@ export const EditableInputField = React.memo(function EditableInputField({
           onKeyDown={handleKeyDown}
         />
       ) : (
-        <span>{playerName}</span>
+        <span className={styles.readonlyPlayerName}>{playerName}</span>
       )}
 
       <button onClick={handleButtonClick}>{nameEditMode ? "Save" : "Edit"}</button>

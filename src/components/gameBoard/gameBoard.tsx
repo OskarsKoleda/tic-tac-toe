@@ -4,16 +4,16 @@ import styles from "./styles.module.css";
 
 interface GameBoardProps {
   turns: Board;
-  handleSelectSquare: (row: number, col: number) => void;
+  onSquareClick: (row: number, col: number) => void;
 }
 
-export const GameBoard = ({ turns, handleSelectSquare }: GameBoardProps) => {
+export const GameBoard = ({ turns, onSquareClick }: GameBoardProps) => {
   return (
     <div className={styles.gameBoard}>
       {turns.map((row, rowIndex) =>
         row.map((playerSymbol, colIndex) => (
           <Square
-            onSquareClick={() => handleSelectSquare(rowIndex, colIndex)}
+            onSquareClick={() => onSquareClick(rowIndex, colIndex)}
             key={`${rowIndex}-${colIndex}`}
             symbol={playerSymbol}
           />

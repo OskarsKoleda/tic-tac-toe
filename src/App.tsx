@@ -10,6 +10,8 @@ import { PlayerSymbols } from "./constants/types.ts";
 import styles from "./styles.module.css";
 import { checkWinner, deriveActivePlayer } from "./utils/utils.ts";
 
+const MAX_TURNS = 9;
+
 const App = () => {
   const [gameTurns, setGameTurns] = useState<Turns>([]);
   const [players, setPlayers] = useState<Players>({
@@ -17,7 +19,7 @@ const App = () => {
     [PlayerSymbols.O]: "Player 2",
   });
 
-  const handleSelectSquare = (rowIndex: number, colIndex: number) => {
+  const onSquareClick = (rowIndex: number, colIndex: number) => {
     setGameTurns((prevTurns) => {
       const activePlayer = deriveActivePlayer(prevTurns);
 
@@ -41,10 +43,6 @@ const App = () => {
     });
   };
 
-  function handleRestart() {
-    setGameTurns([]);
-  }
-
   const gameBoard = useMemo(() => {
     const board = initialGameBoard.map((row) => [...row]);
 
@@ -66,24 +64,18 @@ const App = () => {
     return winnerSymbol ? players[winnerSymbol] : null;
   }, [gameBoard, players]);
 
-  const isDraw = useMemo(() => {
-    if (winnerName) return false;
-
-    return gameTurns.length === 9;
-  }, [gameTurns, winnerName]);
-
   return (
     <div className={styles.appContainer}>
       <h1 className={styles.header}>Tic Tac Toe</h1>
       <div className={styles.gameContainerStyles}>
         <Header players={players} onNameChange={handlePlayerNameChange} />
-        <GameBoard turns={gameBoard} handleSelectSquare={handleSelectSquare} />
+        <GameBoard turns={gameBoard} onSquareClick={onSquareClick} />
       </div>
       <Log turns={gameTurns} />
 
-      {(!!winnerName || isDraw) &&
+      {(winnerName || gameTurns.length === MAX_TURNS) &&
         createPortal(
-          <Modal actionButtonLabel="New Game" onClose={handleRestart}>
+          <Modal actionButtonLabel="New Game" onClose={() => setGameTurns([])}>
             {winnerName ? <p>The winner is {winnerName}!</p> : <p>Tie!</p>}
           </Modal>,
           document.body,

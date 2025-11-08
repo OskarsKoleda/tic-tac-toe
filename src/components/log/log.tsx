@@ -1,8 +1,8 @@
-import type { Turn } from "../../constants/types.ts";
+import type { Turns } from "../../constants/types.ts";
 import styles from "./styles.module.css";
 
 interface LogProps {
-  turns: Turn[];
+  turns: Turns;
 }
 
 export const Log = ({ turns }: LogProps) => {
